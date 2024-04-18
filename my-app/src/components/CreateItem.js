@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import DisplayTableData from './DisplayTableData'; 
 import './CreateItem.css'; 
@@ -14,19 +13,13 @@ const CreateItem = () => {
     nextId:1
 });
 
-
-
-
 const [itemList, setItemList] = useState([]); // State to hold the list of items
 const [showTable, setShowTable] = useState(false); // State to control table visibility
-
-
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewItem((prevItem) => ({ ...prevItem, [name]: value }));
   };
-
   
 const handleAddItem = () => {
     if (
@@ -54,8 +47,6 @@ const handleAddItem = () => {
     }
   };
   
- 
-
   const toggleTable = () => {
     setShowTable(!showTable);
   };
@@ -76,7 +67,6 @@ const handleAddItem = () => {
             />
         </div>
         
-        {/* <br/> */}
         <div className='input-elements-div'>
             <label>Country:</label>
             <br/>
@@ -90,8 +80,6 @@ const handleAddItem = () => {
             />
         </div>
         
-        {/* <br/> */}
-
         <div className='input-elements-div'>
             <label>Email Id:</label>
             <br/>
@@ -104,8 +92,6 @@ const handleAddItem = () => {
                 className="input-field"
             />
         </div>
-        
-        {/* <br /> */}
 
         <div className='input-elements-div'>
             <label>Contact No.:</label>
@@ -118,39 +104,25 @@ const handleAddItem = () => {
                 onChange={handleInputChange}
                 className="input-field"
             />
-
         </div>
         
-        {/* <br /> */}
-        <div>
-            
-            
+        <div>  
             <button onClick={handleAddItem} className="button">
-            {/* <img src={customIcon} alt="Custom Icon" /> */}
                 <MdAddBox className='add-icon'/>
                 Add
             </button>
             <br/><br/>
         </div>
         
-
-        
-
         {/* Render the DisplayTableData component */}
         <DisplayTableData
         itemList={itemList}
-
         setItemList={setItemList}
-
-
-
         showTable={showTable}
         toggleTable={toggleTable}
         />
     </div>
   );
 };
-
-
 
 export default CreateItem;

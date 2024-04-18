@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './DisplayTableData.css'; 
 import { MdDeleteForever,MdEdit,MdSaveAs } from "react-icons/md";
 
-
 const DisplayTableData = ({ itemList,setItemList, showTable, toggleTable }) => {
 
     const [editItem, setEditItem] = useState(null);
@@ -13,7 +12,6 @@ const DisplayTableData = ({ itemList,setItemList, showTable, toggleTable }) => {
     email: '',
     contact: '',
   });
-
 
   const [deleteItemId, setDeleteItemId] = useState(null); // State to store the ID of the item to be deleted
 
@@ -29,16 +27,12 @@ const DisplayTableData = ({ itemList,setItemList, showTable, toggleTable }) => {
 
   const handleUpdate = () => {
     const updatedList = itemList.map((item) =>
-      item.id === updatedItem.id ? updatedItem : item
-
-      
+      item.id === updatedItem.id ? updatedItem : item  
     );
     setEditItem(null);
     setUpdatedItem({ id: '', name: '', country: '', email: '', contact: '' });
     setItemList(updatedList);
-
   };
-
 
   const handleDeleteItem = (id) => {
     setDeleteItemId(id); // Set the ID of the item to be deleted
@@ -50,14 +44,8 @@ const DisplayTableData = ({ itemList,setItemList, showTable, toggleTable }) => {
     setDeleteItemId(null); // Reset deleteItemId state after deletion
   };
 
- 
-
   return (
     <div  className="table-container">
-      
-     
-     
-      
         <div>
           <h3 className='custom-h3'>Employees:</h3>
           <table className="table">
@@ -68,8 +56,6 @@ const DisplayTableData = ({ itemList,setItemList, showTable, toggleTable }) => {
                 <th>Country</th>
                 <th>Email</th>
                 <th>Contact</th>
-
-
                 <th>Action</th>
               </tr>
             </thead>
@@ -129,21 +115,15 @@ const DisplayTableData = ({ itemList,setItemList, showTable, toggleTable }) => {
                     {editItem === item.id ? (
                     
                       <MdSaveAs onClick={handleUpdate} className='save-icon'/>
-                    ) : (
-                    
-                      <MdEdit onClick={() => handleEdit(item)} className='edit-icon'/>
-                      
+                    ) : (                   
+                      <MdEdit onClick={() => handleEdit(item)} className='edit-icon'/>                     
                     )}
                     <MdDeleteForever onClick={() => handleDeleteItem(item.id)} className='delete-icon'/>
                   </td>
-                  
-                
                 </tr>
               ))}
             </tbody>
           </table>
-
-           
         </div>
         
       {deleteItemId && (
@@ -156,8 +136,6 @@ const DisplayTableData = ({ itemList,setItemList, showTable, toggleTable }) => {
     </div>
   </div>
 )}
-
-      
     </div>
   );
 };
